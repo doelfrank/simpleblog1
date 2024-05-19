@@ -1,0 +1,39 @@
+<?php
+
+namespace App\Models;
+
+
+class Post
+{
+    private static $blog_posts = [
+        [
+            "judul" => "Judul Post -1",
+            "slug" => "judul_post_1",
+            "penulis" => "Nining Marni",
+            "artikel" => "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore possimus quo omnis quis itaque doloribus dolore a eos eum ab voluptatum aspernatur delectus hic sint illum soluta recusandae rerum odio, suscipit libero nulla! Ipsum deleniti corporis perferendis excepturi pariatur, voluptates laborum magni voluptatibus totam, facilis iste, ipsam et? Ad saepe doloremque pariatur debitis nulla suscipit, expedita exercitationem dolorum tenetur ex quidem atque earum mollitia iste distinctio quo possimus, ullam hic error quis obcaecati numquam! Illum, consectetur nesciunt. Neque alias rem vero praesentium aut hic blanditiis, laudantium atque itaque quo voluptatibus perferendis ipsam. Voluptatibus fugiat voluptatem, excepturi magni rem quas eaque modi, eos odio numquam similique eligendi molestias perferendis, necessitatibus officia. Distinctio, praesentium unde atque est dolore optio quia repudiandae mollitia in libero, porro soluta sapiente omnis ex non quo asperiores. Laudantium voluptatibus amet harum aliquam doloremque veritatis totam nostrum? Ut, maiores illo vero placeat temporibus perspiciatis, alias quaerat sapiente similique dignissimos tempora quasi sit? Debitis nostrum inventore voluptatem voluptate odit in harum mollitia. Tenetur quaerat veniam, ipsa at deserunt corporis. Earum autem ad nobis? Odit a numquam debitis quidem fugit illum deleniti ex accusamus culpa? Veniam minus voluptates dolores tempore molestiae dolore, autem error quasi quaerat laudantium ex sunt incidunt."
+        ],
+        [   
+            "judul" => "Judul Post -2",
+            "slug" => "judul_post_2",
+            "penulis" => "Salomo",
+            "artikel" => "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore possimus quo omnis quis itaque doloribus dolore a eos eum ab voluptatum aspernatur delectus hic sint illum soluta recusandae rerum odio, suscipit libero nulla! Ipsum deleniti corporis perferendis excepturi pariatur, voluptates laborum magni voluptatibus totam, facilis iste, ipsam et? Ad saepe doloremque pariatur debitis nulla suscipit, expedita exercitationem dolorum tenetur ex quidem atque earum mollitia iste distinctio quo possimus, ullam hic error quis obcaecati numquam! Illum, consectetur nesciunt. Neque alias rem vero praesentium aut hic blanditiis, laudantium atque itaque quo voluptatibus perferendis ipsam. Voluptatibus fugiat voluptatem, excepturi magni rem quas eaque modi, eos odio numquam similique eligendi molestias perferendis, necessitatibus officia. Distinctio, praesentium unde atque est dolore optio quia repudiandae mollitia in libero, porro soluta sapiente omnis ex non quo asperiores. Laudantium voluptatibus amet harum aliquam doloremque veritatis totam nostrum? Ut, maiores illo vero placeat temporibus perspiciatis, alias quaerat sapiente similique dignissimos tempora quasi sit? Debitis nostrum inventore voluptatem voluptate odit in harum mollitia. Tenetur quaerat veniam, ipsa at deserunt corporis. Earum autem ad nobis? Odit a numquam debitis quidem fugit illum deleniti ex accusamus culpa? Veniam minus voluptates dolores tempore molestiae dolore, autem error quasi quaerat laudantium ex sunt incidunt."
+        ],
+        [
+            "judul" => "Judul Post -3",
+            "slug" => "judul_post_3",
+            "penulis" => "Damero",
+            "artikel" => "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore possimus quo omnis quis itaque doloribus dolore a eos eum ab voluptatum aspernatur delectus hic sint illum soluta recusandae rerum odio, suscipit libero nulla! Ipsum deleniti corporis perferendis excepturi pariatur, voluptates laborum magni voluptatibus totam, facilis iste, ipsam et? Ad saepe doloremque pariatur debitis nulla suscipit, expedita exercitationem dolorum tenetur ex quidem atque earum mollitia iste distinctio quo possimus, ullam hic error quis obcaecati numquam! Illum, consectetur nesciunt. Neque alias rem vero praesentium aut hic blanditiis, laudantium atque itaque quo voluptatibus perferendis ipsam. Voluptatibus fugiat voluptatem, excepturi magni rem quas eaque modi, eos odio numquam similique eligendi molestias perferendis, necessitatibus officia. Distinctio, praesentium unde atque est dolore optio quia repudiandae mollitia in libero, porro soluta sapiente omnis ex non quo asperiores. Laudantium voluptatibus amet harum aliquam doloremque veritatis totam nostrum? Ut, maiores illo vero placeat temporibus perspiciatis, alias quaerat sapiente similique dignissimos tempora quasi sit? Debitis nostrum inventore voluptatem voluptate odit in harum mollitia. Tenetur quaerat veniam, ipsa at deserunt corporis. Earum autem ad nobis? Odit a numquam debitis quidem fugit illum deleniti ex accusamus culpa? Veniam minus voluptates dolores tempore molestiae dolore, autem error quasi quaerat laudantium ex sunt incidunt."
+        ]
+    ];
+
+    public static function all () {
+        return collect (self::$blog_posts); // karena properti static, makanya kita pakai selft , public pakai this
+    }
+
+    public static function find($slug) { 
+        $findPost = static::all();  // ambil isi variabel array diatas 
+
+        return $findPost -> firstWhere('slug', $slug);
+    }
+
+}
